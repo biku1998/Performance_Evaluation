@@ -5,6 +5,8 @@ import java.sql.*;
 import model.Student;
 
 public class ServiceProvider {
+	
+	// for uploading Student object in the database.
 
 	public static void uploadStudentToDatabase(Student student) {
 
@@ -34,6 +36,36 @@ public class ServiceProvider {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static boolean authAdmin(String admin_id,String admin_password)
+	{
+		// for checking admin credentials.
+		
+		try
+		{
+			Connection conn = ConnectionProvider.getConnection();
+			
+			Statement st = conn.createStatement();
+			
+			String sql = String.format("select * from admin_PE where admin_id = '%s' and password = '%s'", 
+					admin_id,admin_password);
+			
+			ResultSet rs = st.executeQuery(sql);
+			
+			if(rs.next())
+			{
+				return true;
+			}
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		return false;
 	}
 
 }
