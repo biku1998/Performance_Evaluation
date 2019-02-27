@@ -2,10 +2,11 @@ package service;
 
 import java.sql.*;
 
+import model.Question;
 import model.Student;
 
 public class ServiceProvider {
-	
+
 	// for uploading Student object in the database.
 
 	public static void uploadStudentToDatabase(Student student) {
@@ -37,35 +38,72 @@ public class ServiceProvider {
 		}
 
 	}
-	
-	public static boolean authAdmin(String admin_id,String admin_password)
-	{
+
+	public static boolean authAdmin(String admin_id, String admin_password) {
 		// for checking admin credentials.
-		
-		try
-		{
+
+		try {
 			Connection conn = ConnectionProvider.getConnection();
-			
+
 			Statement st = conn.createStatement();
-			
-			String sql = String.format("select * from admin_PE where admin_id = '%s' and password = '%s'", 
-					admin_id,admin_password);
-			
+
+			String sql = String.format("select * from admin_PE where admin_id = '%s' and password = '%s'", admin_id,
+					admin_password);
+
 			ResultSet rs = st.executeQuery(sql);
-			
-			if(rs.next())
-			{
+
+			if (rs.next()) {
 				return true;
 			}
-			
-		}
-		catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return false;
 	}
 
+	public static boolean authStudent(String email_id, String password) {
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+
+			Statement st = conn.createStatement();
+
+			String sql = String.format("select * from student where email = '%s' and password = '%s'", email_id,
+					password);
+
+			ResultSet rs = st.executeQuery(sql);
+
+			if (rs.next()) {
+				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public static boolean addQuestionToDB(Question q) {
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+
+			Statement st = conn.createStatement();
+
+			String sql = String.format("insert into question values('%s','%s','%s','%s','%s','%s','%s')",q.getSubject(),
+			q.getQues_id(),q.getQues(),q.getOption1(),q.getOption2(),q.getOption3(),q.getCorrect_ans());
+
+			boolean rs = st.execute(sql);
+			//System.out.println(rs);
+
+			if (rs == false) {
+				return false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return true;
+	}
 }

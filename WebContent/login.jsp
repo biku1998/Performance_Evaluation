@@ -171,7 +171,7 @@ img:hover {
             </div>
 
             <!-- ... Your content goes here ... -->
-            <form action="studentup.jsp" method="POST">
+            <form action="studentAuthentication" method="POST">
 
                 
                 

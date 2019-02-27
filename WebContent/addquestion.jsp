@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-<style>
-img {
-    opacity: 1.0;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-}
-
-img:hover {
-    opacity: 0.5;
-    filter: alpha(opacity=100); /* For IE8 and earlier */
-}
-
-</style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>admin login</title>
+    <title>Add question</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -55,8 +41,7 @@ img:hover {
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
-            Performance Evaluation</a>
+            <a class="navbar-brand" href="#">Performance Evaluation</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -78,9 +63,10 @@ img:hover {
                     <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
                 </a>-->
                 <ul class="dropdown-menu dropdown-alerts">
-                    <li>
+                    <li>  
                         <a href="#">
-                            <div>
+                        <div>
+                          
                                 <i class="fa fa-comment fa-fw"></i> New Comment
                                 <span class="pull-right text-muted small">4 minutes ago</span>
                             </div>
@@ -97,7 +83,7 @@ img:hover {
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> About Us<b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i> exit<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Contact us</a>
@@ -105,7 +91,7 @@ img:hover {
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Help</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Donate</a>
+                    <li><a href="AdminPanel.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -127,33 +113,18 @@ img:hover {
                         </div>
                     </li>
                     <li>
-                        <a href="index.jsp" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 					 <li>
-                        <a href="admin.jsp" class="active"><i class="fa fa-lock fa-fw"></i> Admin</a>
+                        <a href="addquestion.jsp" class="active"><i class="fa fa-plus"></i> Add_Question</a>
                     </li>
                     <li>
-                        <a href="company.jsp" class="active"><i class="fa fa-building fa-fw"></i> Company</a>
+                        <a href="deletequestion.jsp" class="active"><i class="fa fa-trash-o "></i> Delete_Question</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-graduation-cap fa-fw"></i> Student<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                          <li>
-                                <a href="signup.jsp">SignUp</a>
-                            </li>
-                            <li>
-                                <a href="">SignIn <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="login.jsp">Login</a>
-                                    </li>
-                                     <li>
-                                        <a href="#">Forgot-Password</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="Search.html" class="active"><i class="fa fa-search"></i> Search</a>
                     </li>
+                    
                 </ul>
 
             </div>
@@ -166,36 +137,56 @@ img:hover {
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">{ admin Login Portal }</h1>
+                    <h1 class="page-header">{ add question }</h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
-            <form action="adminVerify" method="POST">
+            
+             <form action="addQuestion" method="POST">
 
+             
                 <div class="form-group">
-                    <label>admin-id</label>
-                    <input type="text" class="form-control" name="adminid" style="width:25%;" required="required">
+                    <label><h4>Subject&nbsp;</h4> </label>
+                   <input type="text" class="form-control" name="subject">
+                
+                </div>
+              
+                
+                <div class="form-group">
+                    <label> ID </label>
+                    <input type="text" class="form-control" name="id">
+                </div>
+                
+                
+                <div class="form-group">
+                    <label>Enter Question</label>
+                    <textarea class="form-control" rows="4" name="ques"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control"style="width:25%;" required="required">
+                    <label>Answer 1. </label>
+                    <input type="text" class="form-control" name="option1">
+                </div>
+                <div class="form-group">
+                    <label>Answer 2.</label>
+                    <input type="text" class="form-control" name="option2">
+                </div>
+                <div class="form-group">
+                    <label>Answer 3.</label>
+                    <input type="text" class="form-control" name="option3">
                 </div>
                 
-                <input type="submit" name="submit"  value="Login" class="btn btn-block btn-success"style="width:25%;">
-                </form>
+                <div class="form-group">
+                    <label>Correct Answer.</label>
+                    <input type="text" class="form-control" name="correct_ans">
+                </div>
+                    
+               
+                
+                    <input type="submit" value="Add"  name="add" class="btn btn-block btn-success" >
+                </form></div></div></div>
 
-
-        </div>
-    </div>
-
-</div>
-
-
-<%-- <%
-session.setAttribute("logedIn", "yes");
-%> --%>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>

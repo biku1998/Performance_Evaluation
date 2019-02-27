@@ -53,7 +53,9 @@ public class SignUpController extends HttpServlet {
 			
 			// for debug.
 			
-			out.println("Done ......");
+//			out.println("Done ......");
+			
+			resp.sendRedirect("examSelection.jsp");
 			
 			
 			

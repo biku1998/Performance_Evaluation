@@ -1,27 +1,20 @@
+<%-- <%
+String log = (String)session.getAttribute("logedIn");
+if(log == null || log.equalsIgnoreCase("no")){
+	response.sendRedirect("admin.jsp");
+}
+%> --%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-<style>
-img {
-    opacity: 1.0;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-}
-
-img:hover {
-    opacity: 0.5;
-    filter: alpha(opacity=100); /* For IE8 and earlier */
-}
-
-</style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>admin login</title>
+    <title>Admin Panel</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -55,8 +48,7 @@ img:hover {
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
-            Performance Evaluation</a>
+            <a class="navbar-brand" href="#">Performance Evaluation</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -127,33 +119,22 @@ img:hover {
                         </div>
                     </li>
                     <li>
-                        <a href="index.jsp" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 					 <li>
-                        <a href="admin.jsp" class="active"><i class="fa fa-lock fa-fw"></i> Admin</a>
+                        <a href="addquestion.jsp" class="active"><i class="fa fa-plus"></i> Add_Question</a>
                     </li>
                     <li>
-                        <a href="company.jsp" class="active"><i class="fa fa-building fa-fw"></i> Company</a>
+                        <a href="deletequestion.jsp" class="active"><i class="fa fa-trash-o "></i> Delete_Question</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-graduation-cap fa-fw"></i> Student<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                          <li>
-                                <a href="signup.jsp">SignUp</a>
-                            </li>
-                            <li>
-                                <a href="">SignIn <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="login.jsp">Login</a>
-                                    </li>
-                                     <li>
-                                        <a href="#">Forgot-Password</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="Search.jsp" class="active"><i class="fa fa-search"></i> Search</a>
                     </li>
+                    
+                     <li>
+                        <a href="adminlogout.jsp" class="active"><i class="fa fa-lock"></i> Logout</a>
+                    </li>
+                    
                 </ul>
 
             </div>
@@ -166,36 +147,17 @@ img:hover {
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">{ admin Login Portal }</h1>
+                    <h1 class="page-header">{ Welcome To admin panel }</h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
-            <form action="adminVerify" method="POST">
-
-                <div class="form-group">
-                    <label>admin-id</label>
-                    <input type="text" class="form-control" name="adminid" style="width:25%;" required="required">
-                </div>
-                
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control"style="width:25%;" required="required">
-                </div>
-                
-                <input type="submit" name="submit"  value="Login" class="btn btn-block btn-success"style="width:25%;">
-                </form>
-
+            <img alt="" align="center" width="50%;" src="admin.jpg">
 
         </div>
     </div>
 
 </div>
-
-
-<%-- <%
-session.setAttribute("logedIn", "yes");
-%> --%>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
