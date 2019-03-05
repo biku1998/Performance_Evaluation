@@ -1,6 +1,8 @@
 package service;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 
 import model.Question;
 import model.Student;
@@ -106,4 +108,52 @@ public class ServiceProvider {
 
 		return true;
 	}
+	
+	public static ArrayList<Question> getQuestions(String subject){
+		
+		// this function will return all the questions for the given subject.
+		
+		ArrayList<Question> ques = new ArrayList<>();
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement st = conn.createStatement();
+			
+			String sql = String.format("select * from question where subject = '%s'", subject);
+			
+			//String sql = "select * from question";
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				ques.add(new Question(rs.getString("subject"), rs.getString("ques_id"), rs.getString("ques"),
+						rs.getString("option1"),rs.getString("option2"), rs.getString("option3"), 
+						rs.getString("correct_ans")));
+			}
+			
+			return ques;
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static void deleteQuestions(String [] ques_id) {
+		// this function will delete the question for the provided id.
+		try {
+
+			Connection conn  = ConnectionProvider.getConnection();
+			Statement st = conn.createStatement();
+			for(String q_id : ques_id) {
+				String sql = String.format("delete from question where ques_id = '%s'", q_id);
+				st.execute(sql);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

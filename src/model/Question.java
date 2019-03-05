@@ -50,5 +50,12 @@ public class Question {
 		return correct_ans;
 	}
 	
+//	@Override
+//	public String toString() {
+//		// TODO Auto-generated method stub
+//		String op = String.format("question : %s", this.getQues());
+//		return op;
+//	}
+	
 
 }

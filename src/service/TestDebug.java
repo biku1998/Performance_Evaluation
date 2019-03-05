@@ -1,21 +1,36 @@
 package service;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import model.Question;
 
 public class TestDebug {
 	
 	public static void main(String[] args) {
 		
 		
-		Connection conn  = ConnectionProvider.getConnection();
+		ArrayList<Question> q = ServiceProvider.getQuestions("Java");
 		
-		if(!(conn == null))
+		System.out.println(q);
+		System.out.println(q.size());
+		
+		try
 		{
-			System.out.println("Connected...");
+			Connection conn  = ConnectionProvider.getConnection();
+			
+			Statement st = conn.createStatement();
+			
+			ResultSet rs = st.executeQuery("select * from student");
+			
+			
 		}
-		else {
-			System.out.println("Connection failed...");
+		catch(Exception  e) {
+			e.printStackTrace();
 		}
+		
 		
 	}
 

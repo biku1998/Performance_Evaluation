@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add question</title>
+    <title>Delete question</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -140,54 +140,26 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">{ add question }</h1>
+                    <h1 class="page-header">{ delete question }</h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
             
-             <form action="addQuestion" method="POST">
+             <form action="searchQuestions" method="POST">
 
              
                 <div class="form-group">
-                    <label><h4>Subject&nbsp;</h4> </label>
-                   <input type="text" class="form-control" name="subject">
+                    <label> <h4>Subject&nbsp;</h4> </label>
+                   <input type="text" class="form-control" name="subject"
+                   style='width: 600px;'
+                   >
                 
                 </div>
               
-                
-                <div class="form-group">
-                    <label> ID </label>
-                    <input type="text" class="form-control" name="id">
-                </div>
-                
-                
-                <div class="form-group">
-                    <label>Enter Question</label>
-                    <textarea class="form-control" rows="4" name="ques"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Answer 1. </label>
-                    <input type="text" class="form-control" name="option1">
-                </div>
-                <div class="form-group">
-                    <label>Answer 2.</label>
-                    <input type="text" class="form-control" name="option2">
-                </div>
-                <div class="form-group">
-                    <label>Answer 3.</label>
-                    <input type="text" class="form-control" name="option3">
-                </div>
-                
-                <div class="form-group">
-                    <label>Correct Answer.</label>
-                    <input type="text" class="form-control" name="correct_ans">
-                </div>
-                    
-               
-                
-                    <input type="submit" value="Add"  name="add" class="btn btn-block btn-success" >
+                <input type="submit" value="search questions"  name="search" class="btn btn-block btn-success"
+                style='width: 400px;'
+                 >
                 </form></div></div></div>
 
 

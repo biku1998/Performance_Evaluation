@@ -10,7 +10,7 @@ public class ConnectionProvider {
     {
     	String url = "jdbc:mysql://localhost:3306/Perf_Eval?autoReconnect=true&useSSL=false";
 		String user = "root";
-		String password = "root";	
+		String password = "rootuser";	
         try
         {
         	Class.forName("com.mysql.jdbc.Driver");

@@ -1,3 +1,12 @@
+<%@page import="model.Question"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%
+// getting the data from the Controller.
+ArrayList<Question> q =  (ArrayList<Question>)request.getAttribute("Subquestions");
+/* out.println(q); */
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +16,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add question</title>
+    <title>Delete question</title>
+
+      <link rel="stylesheet" href="csstable/style.css">
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -140,54 +152,61 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">{ add question }</h1>
+                    <h1 class="page-header">{ delete question }</h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
+            <form action="deleteSelectedQuestion" method="POST">
             
-             <form action="addQuestion" method="POST">
+            <table class="responstable">
+					  
+					  <tr>
+					    <th>Select</th>
+					    <th data-th="Driver details"><span>Question-ID</span></th>
+					    <th>Question</th>
+					    <th>Correct Answer</th>
+					   
+					  </tr>
+					  
+					  <%for (Question i: q) {%>
+						  <tr>
+						    <td><input type="checkbox" name="ques_id" value="<%=i.getQues_id()%>"/></td>
+						    <td><%=i.getQues_id()%></td>
+						    <td><%=i.getQues()%></td>
+						    <td><%=i.getCorrect_ans()%></td>
+						    </tr>
+						  <%
+						    /* System.out.println(e.getKey() + " = " + e.getValue()); */
+						} %>
+					  <%-- <tr>
+					    <td><input type="checkbox" name="<%= %>"/></td>
+					    <td><%= %>></td>
+					    <td><%= %>></td>
+					    </tr> --%>
+					  <!-- <tr>
+					    <td></td>
+					    <td></td>
+					    <td></td>
+					    <td></td>
+					    
+					  </tr> -->
+					  
+					</table>
+            
+             
 
              
-                <div class="form-group">
-                    <label><h4>Subject&nbsp;</h4> </label>
-                   <input type="text" class="form-control" name="subject">
+                <!-- <div class="form-group">
+                    <label> <h4>Enter Question-ID&nbsp;</h4> </label>
+                   <input type="text" class="form-control" name="id"
+                   style='width: 300px;'
+                   >
                 
-                </div>
-              
-                
-                <div class="form-group">
-                    <label> ID </label>
-                    <input type="text" class="form-control" name="id">
-                </div>
-                
-                
-                <div class="form-group">
-                    <label>Enter Question</label>
-                    <textarea class="form-control" rows="4" name="ques"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Answer 1. </label>
-                    <input type="text" class="form-control" name="option1">
-                </div>
-                <div class="form-group">
-                    <label>Answer 2.</label>
-                    <input type="text" class="form-control" name="option2">
-                </div>
-                <div class="form-group">
-                    <label>Answer 3.</label>
-                    <input type="text" class="form-control" name="option3">
-                </div>
-                
-                <div class="form-group">
-                    <label>Correct Answer.</label>
-                    <input type="text" class="form-control" name="correct_ans">
-                </div>
-                    
-               
-                
-                    <input type="submit" value="Add"  name="add" class="btn btn-block btn-success" >
+                </div> -->
+              <input type="submit" value="Delete"  name="search" class="btn btn-block btn-success"
+                style='width: 200px;'
+                 >
                 </form></div></div></div>
 
 

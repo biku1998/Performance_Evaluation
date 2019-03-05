@@ -132,7 +132,7 @@ if(log == null || log.equalsIgnoreCase("no")){
                     </li>
                     
                      <li>
-                        <a href="adminlogout.jsp" class="active"><i class="fa fa-lock"></i> Logout</a>
+                        <a href="index.jsp" class="active"><i class="fa fa-lock"></i> Logout</a>
                     </li>
                     
                 </ul>
