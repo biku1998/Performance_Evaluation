@@ -1,3 +1,15 @@
+<%@page import="service.ServiceProvider"%>
+<%@page import="java.util.LinkedHashSet"%>
+<%
+// fetch all the subject that are avaliable.
+
+LinkedHashSet<String> sub_aval = ServiceProvider.getSubjects();
+
+%>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -176,53 +188,21 @@
 					    <th>Duration</th>
 					    <th>Description</th>
 					  </tr>
+					  <% 
+					  for(String sub : sub_aval){
+						  %>
+						  <tr>
+						    <td><input type="radio" name="subject" value="<%=sub%>"/></td>
+						    <td><%=sub.toUpperCase()%></td>
+						    <td>Mcq</td>
+						    <td>1 hours</td>
+						    <td>Based on <%=sub.toUpperCase()%> Basics and Frameworks.</td>
+						  </tr> <%
+					  }
+					 %>
 					  
-					  <tr>
-					    <td><input type="radio" name="tech" value="java"/></td>
-					    <td>Java</td>
-					    <td>Mcq</td>
-					    <td>3 hours</td>
-					    <td>Based on Java SE & EE</td>
-					  </tr>
-					  
-					  <tr>
-					    <td><input type="radio" name="tech" value="c"/></td>
-					    <td>C</td>
-					    <td>Mcq</td>
-					    <td>3 hours</td>
-					    <td>Based on both c and embeded C</td>
-					  </tr>
-					  
-					  <tr>
-					    <td><input type="radio" name="tech" value="c#"/></td>
-					    <td>C#</td>
-					    <td>Mcq</td>
-					    <td>2 hours</td>
-					    <td>Based on c sharp and visual studio </td>
-					  </tr>
-					  
-					  <tr>
-					    <td><input type="radio" name="tech" value="python"/></td>
-					    <td>Python</td>
-					    <td>Mcq</td>
-					    <td>1 hours</td>
-					    <td>Based on python</td>
-					  </tr>
-					  <tr>
-					    <td><input type="radio" name="tech" value="c++"/></td>
-					    <td>C++</td>
-					    <td>Mcq</td>
-					    <td>3 hours</td>
-					    <td>Based on c++ oops</td>
-					  </tr>
-					  <tr>
-					    <td><input type="radio" name="tech" value="php"/></td>
-					    <td>Php</td>
-					    <td>Mcq</td>
-					    <td>3 hours</td>
-					    <td>Based on php and frameworks</td>
-					  </tr>
-					  <tr>
+					 
+					<tr>
 					    <td></td>
 					    <td></td>
 					    <td></td>

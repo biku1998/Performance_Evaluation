@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 import model.Question;
 
@@ -12,10 +13,6 @@ public class TestDebug {
 	public static void main(String[] args) {
 		
 		
-		ArrayList<Question> q = ServiceProvider.getQuestions("Java");
-		
-		System.out.println(q);
-		System.out.println(q.size());
 		
 		try
 		{
@@ -23,7 +20,10 @@ public class TestDebug {
 			
 			Statement st = conn.createStatement();
 			
-			ResultSet rs = st.executeQuery("select * from student");
+			System.out.println("Connected...");
+			
+			LinkedHashSet<String> s = ServiceProvider.getSubjects();
+			System.out.println(s);
 			
 			
 		}

@@ -2,7 +2,7 @@ package service;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+import java.util.LinkedHashSet;
 
 import model.Question;
 import model.Student;
@@ -156,4 +156,33 @@ public class ServiceProvider {
 		}
 	}
 	
+	public static LinkedHashSet<String> getSubjects(){
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement st = conn.createStatement();
+			LinkedHashSet<String> sub = new LinkedHashSet<String>();
+			String sql = "select * from question";
+			
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				sub.add(rs.getString("subject"));
+			}
+			
+			return sub;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }
+
+
+
+
+
+
+
+
