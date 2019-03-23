@@ -178,7 +178,7 @@ LinkedHashSet<String> sub_aval = ServiceProvider.getSubjects();
 
             <!-- ... Your content goes here ... -->
 					           <h1></h1>
-					<form action="getQuestion.jsp" method="post">
+					<form action="getQuestions" method="post">
 					<table class="responstable">
 					  
 					  <tr>

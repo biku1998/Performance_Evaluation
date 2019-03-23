@@ -22,8 +22,8 @@ public class TestDebug {
 			
 			System.out.println("Connected...");
 			
-			LinkedHashSet<String> s = ServiceProvider.getSubjects();
-			System.out.println(s);
+//			LinkedHashSet<String> s = ServiceProvider.getSubjects();
+//			System.out.println(s);
 			
 			
 		}
