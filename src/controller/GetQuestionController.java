@@ -72,6 +72,8 @@ public class GetQuestionController extends HttpServlet {
 			
 			// putting questions , q_no and answer storage in session.
 			
+			session.setAttribute("currentSubject", subject);
+			
 			session.setAttribute("q_no", 0);
 			
 			session.setAttribute("ansStore", userAnswer);

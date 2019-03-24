@@ -2,6 +2,7 @@ package service;
 
 import java.sql.*;
 
+
 public class ConnectionProvider {
 	
 	static Connection conn;
@@ -10,7 +11,7 @@ public class ConnectionProvider {
     {
     	String url = "jdbc:mysql://localhost:3306/Perf_Eval?autoReconnect=true&useSSL=false";
 		String user = "root";
-		String password = "rootuser";	
+		String password = "root";	
         try
         {
         	Class.forName("com.mysql.jdbc.Driver");
