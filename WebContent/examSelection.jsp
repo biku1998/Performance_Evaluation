@@ -154,7 +154,7 @@ LinkedHashSet<String> sub_aval = ServiceProvider.getSubjects();
                                         <a href="login.jsp">Login</a>
                                     </li>
                                      <li>
-                                        <a href="#">Forgot-Password</a>
+                                        <a href="ForgotPasswordView.jsp">Forgot-Password</a>
                                     </li>
                                 </ul>
                             </li>

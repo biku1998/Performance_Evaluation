@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +27,18 @@ public class AnswerCollectorController extends  HttpServlet{
 		String q_id  = req.getParameter("ques_id");
 		String user_ans = req.getParameter("opn");
 		
+		
+		
 		try {
+			
+//			For debug..
+//			
+//			PrintWriter out = resp.getWriter();
+//			
+//			out.println(user_ans);
+//			
+			
+			
 			HttpSession session = req.getSession();
 			ans = (HashMap<String, String>)session.getAttribute("ansStore");
 			ans.put(q_id, user_ans);
@@ -40,6 +52,7 @@ public class AnswerCollectorController extends  HttpServlet{
 			q_no = q_no + 1;
 //			System.out.println(q_no);
 			session.setAttribute("q_no", q_no);
+			
 			// send the user back 
 			resp.sendRedirect("startQuiz.jsp");
 		}

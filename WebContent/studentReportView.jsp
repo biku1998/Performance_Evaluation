@@ -1,10 +1,31 @@
 <!-- here we will fetch the user details and show the marks. -->
+<%@page import="java.util.HashMap"%>
+<%@page import="model.Question"%>
+<%@page import="java.util.ArrayList"%>
+<%
+
+String [] info = (String [])session.getAttribute("userReportInfo");
+
+String email = info[1];
+
+String name = info[0];
+
+String marks_ob = info[3];
+
+String total_marks = info[4];
+
+String curr_sub = info[2];
+
+String perc = info[5];
 
 
+ArrayList<Question>	questions = (ArrayList<Question>)session.getAttribute("Questions");
 
+HashMap<String, String> answers = (HashMap<String, String>)session.getAttribute("ansStore");
 
+ArrayList<String>  ans = new ArrayList<String>(answers.values());
 
-
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,7 +156,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">..Result..</a>
+            <a class="navbar-brand" href="#">{Result}</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -187,14 +208,14 @@
                     <li class="divider"></li>
                     <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Donate</a>
                     </li>
-                    <li><a href="student.html"><i class="fa fa-user fa-fw"></i> Logout</a>
+                    <li><a href="login.jsp"><i class="fa fa-user fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
         </ul>
 
         <!-- Sidebar -->
-          <div class="navbar-default sidebar" role="navigation">
+<%--           <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
@@ -215,8 +236,8 @@
                         <a href="admin.html" class="active"><i class="fa fa-lock fa-fw"></i>  Previous Question</a>
                     </li>
                     <li>  -->
-                       <%-- <a href="company.html" class="active" >  <h4><i class="fa fa-ban" aria-hidden="true"></i> End Exam</h4></a>
-                    </li>--%> 
+                       <a href="company.html" class="active" >  <h4><i class="fa fa-ban" aria-hidden="true"></i> End Exam</h4></a>
+                    </li> 
                   <!--   <li>
                         <a href="student.html"><i class="fa fa-graduation-cap fa-fw"></i> Student<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -239,7 +260,7 @@
                 </ul>
 
             </div>
-        </div> 
+        </div>  --%>
     </nav>  
 
     <!-- Page Content -->
@@ -248,7 +269,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header" style="color: steelblue;">..Report..</h1>
+                    <h1 class="page-header" style="color: steelblue;"></h1>
                 </div>
             </div>
 
@@ -257,68 +278,73 @@
             
              
 								            
-					            <h1>Report <span>of</span> <span><%=email %></span></h1>
+					            <h1><span>Report</span> <span>of</span> <span><%=name%></span></h1>
+					            <hr>
 					
 					<% out.println("<table class=responstable>");
 					
 					  
-					  out.println("<tr>");
+						int sno = 1;
+					    out.println("<tr>");
 					    
 					    out.println("<th data-th=Driver details><span>Sr No </span></th>");
-					    out.println("<th>Your answer</th>");
+					    out.println("<th>Question</th>");
 					    out.println("<th>Correct answer</th>");
+					    out.println("<th>Your answer</th>");
 					    
 					  out.println("</tr>");
-					while(rs.next()){
-						sno=rs.getInt("sno");
+					  
+					for(int i  = 0 ; i < questions.size(); i++){
+						/* sno=rs.getInt("sno");
 						a = rs.getString("cans");
 						ua= rs.getString("uans");
-						
-						
-						
-						
-					
-					
-					  
-					 out.println(" <tr>");
-					    
+						 */
+						out.println(" <tr>");
 					    out.println("<td>");
 					    out.println(sno);
 					    out.println("</td>");
 					    out.println("<td>");
-					    out.println(a);
+					    out.println(questions.get(i).getQues());
 					    out.println("</td>");
 					    out.println("<td>");
-					    out.println(ua);
+					    out.println(questions.get(i).getCorrect_ans());
+					    out.println("</td>");
+					    
+					    out.println("<td>");
+					    out.println(ans.get(i));
 					    out.println("</td>");
 					    
 					  out.println("</tr>");
-					  if(a.equalsIgnoreCase(ua)){
+					  
+					  sno++;
+					  /* if(a.equalsIgnoreCase(ua)){
 						  g++;
-					  }
+					  } */
 					  
 					}
 					//out.println(g);
 					out.println("</table>");
 					  out.println("<script src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script><hr>");
 					  out.println("<ul>");
-					  out.println("<li><h4>Each Question carry 20 marks *</h4></li>");
+					  out.println("<li><h4>Each Question carry 10 marks</h4></li>");
 					  //out.println("<li><h4>No Of question Attempted:-</h4></li>");
-					  out.print("<li><h4>Correct: ");
-					  out.println(g);
+					  out.print("<li><h4>Total marks : ");
+					  out.println(total_marks);
 					  out.println("</h4></li>");
-					  out.print("<li><h4>InCorrect: ");
-					  out.println(4-g);
+					  out.print("<li><h4>Marks Obtained: ");
+					  out.println(marks_ob);
 					  out.println("</h4></li>"); 
 					  
 					  out.println("</h4></li>");
 					  out.print("<li><h4>Grade: ");
-					  out.println(20*g);
+					  out.println(perc);
 					  out.println("</h4></li>"); 
 					  
 					  out.println("</ul> ");  
+					  
+					  /* out.println(info[1]); */
 					  //out.println(top);
-					  PreparedStatement sp = conn.prepareStatement("update studentinfo set grade =? , exam = ? where email = ? ");
+					 /*  PreparedStatement sp = conn.prepareStatement("update studentinfo set grade =? , exam = ? where email = ? ");
                       int  gr=20*g;
 
 
@@ -328,18 +354,8 @@
 					  
 					  int rq = sp.executeUpdate();       
 					            
-					         
-					            
-       
-					   %>
-            
-            
-            
-            
+ */					  %>
             </div>
-                         
-
-
         </div>
     </div>
 

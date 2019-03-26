@@ -148,7 +148,7 @@ img:hover {
                                         <a href="login.jsp">Login</a>
                                     </li>
                                      <li>
-                                        <a href="stufpass.html">Forgot-Password</a>
+                                        <a href="ForgotPasswordView.jsp">Forgot-Password</a>
                                     </li>
                                 </ul>
                             </li>

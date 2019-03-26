@@ -21,7 +21,9 @@ img:hover {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Student login</title>
+    <title>  Forgot password</title>
+    
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,6 +42,8 @@ img:hover {
 
     <!-- Custom Fonts -->
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" type="text/css" href="forgotPassCss.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -161,38 +165,14 @@ img:hover {
     </nav>
 
     <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">{ Login }</h1>
-                </div>
-            </div>
-
-            <!-- ... Your content goes here ... -->
-            <form action="studentAuthentication" method="POST">
-
-                
-                
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control" required="required">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control" required="required">
-                </div>
-               
-               
-                <input type="submit" name="submit"  value="Login" class="btn btn-block btn-success"style="width:25%;">
-                </form>
-
-
-        </div>
-    </div>
-
-</div>
+	<form class="box" action="ForgotPassword" method="POST">
+		<h1>Enter email to send your password</h1>
+		<input type="email" name="email" placeholder="email" required>
+		<!-- <input type="password" name="" placeholder="password"> -->
+		<input type="submit" name="" value="Submit">
+	</form>
+       
 
 
 <!-- jQuery -->

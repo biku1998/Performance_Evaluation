@@ -172,7 +172,7 @@ img:hover {
             </div>
 
             <!-- ... Your content goes here ... -->
-            <form action="companycheck.jsp" method="POST">
+            <form action="CompanyLoginCheck" method="POST">
 
                 <div class="form-group">
                     <label>Company Name</label>
@@ -192,16 +192,16 @@ img:hover {
 <hr>
             <div>
             <h2>{ New Company Registration }</h2>
-            <form action="registercomp.jsp" method="POST">
+            <form action="CompanyRegister" method="POST">
 
                 <div class="form-group">
                     <label>Company Name</label>
-                    <input type="text" class="form-control" name="compname" style="width:25%;" required="required">
+                    <input type="text" class="form-control" name="compnameReg" style="width:25%;" required="required">
                 </div>
                 
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" class="form-control"style="width:25%;" required="required">
+                    <input type="password" name="passwordReg" class="form-control"style="width:25%;" required="required">
                 </div>
                 
                 <input type="submit" name="submit"  value="Register" class="btn btn-block btn-success"style="width:25%;">

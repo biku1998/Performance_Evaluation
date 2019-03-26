@@ -22,8 +22,14 @@ public class TestDebug {
 			
 			System.out.println("Connected...");
 			
+			System.out.println((float)10 / (float)20);
+			
 //			LinkedHashSet<String> s = ServiceProvider.getSubjects();
 //			System.out.println(s);
+			
+			EmailServer.sendMail("kumarsourabh228edu@gmail.com", "1245");
+			
+			System.out.println("sent...");
 			
 			
 		}

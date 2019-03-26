@@ -258,7 +258,7 @@ if(q_no == questions.size()){
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header" style="color: steelblue;">..PE Test Conductor..</h1>
+                    <h1 class="page-header" style="color: steelblue;">PE Test Conductor</h1>
                 </div>
             </div>
 
@@ -272,25 +272,25 @@ if(q_no == questions.size()){
 	
 			            <br><br>
 			            
-			            <form action="answerCollector" method="POST" >
+			            <form action="answerCollector" method="GET" >
 			            <table><tr><th>
 			  <label class="radio inline"> 
-			      <input type="radio" name="opn" value=<%=(questions.get(q_no)).getOption1()%> >
+			      <input type="radio" name="opn" value='<%=(questions.get(q_no)).getOption1()%>' >
 			      1.<span>   <%=(questions.get(q_no)).getOption1()%> </span> 
 			   </label></th></tr>
 			   <tr><th>
 			  <label class="radio inline"> 
-			      <input type="radio" name="opn" value=<%=(questions.get(q_no)).getOption2()%>>
+			      <input type="radio" name="opn" value='<%=(questions.get(q_no)).getOption2()%>'>
 			      2.<span> <%=(questions.get(q_no)).getOption2()%> </span> 
 			  </label></th></tr>
 			    <tr><th>
 			  <label class="radio inline"> 
-			      <input type="radio" name="opn" value=<%=(questions.get(q_no)).getOption3()%>>
+			      <input type="radio" name="opn" value='<%=(questions.get(q_no)).getOption3()%>'>
 			      3.<span><%=(questions.get(q_no)).getOption3()%></span> 
 			  </label></th></tr>
 			    <tr><th>
 			  <label class="radio inline"> 
-			      <input type="radio" name="opn" value=<%=(questions.get(q_no)).getCorrect_ans()%>>
+			      <input type="radio" name="opn" value='<%=(questions.get(q_no)).getCorrect_ans()%>'>
 			      4.<span><%=(questions.get(q_no)).getCorrect_ans()%></span>
 			  </label></th></tr>
  			  </table>
