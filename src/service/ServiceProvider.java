@@ -177,12 +177,65 @@ public class ServiceProvider {
 		return null;
 	}
 	
+	
+	
+	public static LinkedHashSet<String> getPassoutList(){
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement st = conn.createStatement();
+			LinkedHashSet<String> passout = new LinkedHashSet<String>();
+			String sql = "select (passout) from student";
+			
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				passout.add(rs.getString("passout"));
+			}
+			passout.remove("null");
+			return passout;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
+	public static LinkedHashSet<String> getEducationList(){
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			Statement st = conn.createStatement();
+			LinkedHashSet<String> eduList = new LinkedHashSet<String>();
+			String sql = "select (education) from student";
+			
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				eduList.add(rs.getString("education"));
+			}
+			eduList.remove("null");
+			return eduList;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static int[] minMaxFromString(String data) {
+		
+		// data  = "30-60"
+		
+		String [] sub_array = data.split("-");
+		int min = Integer.parseInt(sub_array[0].trim());
+		int max = Integer.parseInt(sub_array[1].trim());
+		
+		return new int[]{min,max};
+		
+	}
+
 }
-
-
-
-
-
-
 
 

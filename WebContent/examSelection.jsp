@@ -5,6 +5,16 @@
 
 LinkedHashSet<String> sub_aval = ServiceProvider.getSubjects();
 
+String err_msg = String.valueOf(session.getAttribute("error_msg"));
+
+if(!err_msg.equalsIgnoreCase("null"))
+{
+	%> <script> 
+		alert('<%=err_msg%>')
+		</script>
+	
+	<%
+}
 %>
 
 

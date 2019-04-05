@@ -30,6 +30,8 @@ public class LoginController extends HttpServlet {
 				// user exist so putting him into the session.
 				session.setAttribute("currentUser", email_id);
 				
+				session.setAttribute("error_msg", null);
+				
 				resp.sendRedirect("examSelection.jsp");
 			} else {
 				resp.sendRedirect("signup.jsp");

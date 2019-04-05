@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -27,7 +28,26 @@ public class GetQuestionController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) {
 	
+		HttpSession session = req.getSession();
+		
+		String curr_user = String.valueOf(session.getAttribute("currentUser"));
+		
+		
+		
+		
 		String subject = req.getParameter("subject");
+		
+		if(checkExamStatusOfStudent(curr_user,subject))
+		{
+			try {
+				session.setAttribute("error_msg", "You have already , opted for this test.Please choose other subject");
+				resp.sendRedirect("examSelection.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		PrintWriter out = null;
 		
 		ArrayList<Question> questions = new ArrayList<>();
@@ -45,7 +65,7 @@ public class GetQuestionController extends HttpServlet {
 			
 			ResultSet rs = st.executeQuery(sql);
 			
-			HttpSession session = req.getSession();
+			
 			
 			HashMap<String, String> userAnswer = new HashMap<>();
 			
@@ -86,6 +106,38 @@ public class GetQuestionController extends HttpServlet {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+	}
+
+
+	private boolean checkExamStatusOfStudent(String curr_user,String sub) {
+		
+		Connection conn = null;
+		try
+		{
+		
+			conn = ConnectionProvider.getConnection();
+			
+			Statement st   = conn.createStatement();
+			
+			
+			String sql = String.format("select * from examresult where email = '%s' and lang = '%s'"
+					,curr_user,sub);
+			
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				return true;
+			}
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return false;
 		
 	}
 

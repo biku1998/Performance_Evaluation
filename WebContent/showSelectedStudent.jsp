@@ -1,15 +1,15 @@
+<%@page import="model.Exam"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="service.ServiceProvider"%>
 <%@page import="java.util.LinkedHashSet"%>
 <%
 	// fetch the list of all the required data to show in the jsp page.
-
-	LinkedHashSet<String> langs = ServiceProvider.getSubjects();
-
+	
 	String curr_company = String.valueOf(session.getAttribute("curr_company"));
 
-	LinkedHashSet<String> passoutList = ServiceProvider.getPassoutList();
-
-	LinkedHashSet<String> eduList = ServiceProvider.getEducationList();
+	
+	ArrayList<Exam> select_students = (ArrayList<Exam>)session.getAttribute("selectedStudent");
+		
 %>
 
 
@@ -51,7 +51,7 @@
     <![endif]-->
 
 
-
+<link rel="stylesheet" href="csstable/style.css">
 
 
 
@@ -155,101 +155,44 @@
 							<%=curr_company%>
 							}
 						</h1>
+						<h2>Your requested student list is here</h2>
 					</div>
 				</div>
 
 				<!-- ... Your content goes here ... -->
-				<form action="SearchStudentFromCompany" method="POST">
+				
+				<table class="responstable">
+					  <tr>
+					    <th>Email</th>
+					    <th data-th="Driver details"><span>Technology</span></th>
+					    <th>Grade</th>
+					    <th>Name</th>
+					    <th>Gender</th>
+					    <th>City</th>
+					    <th>Contact</th>
+					    <th>Education</th>
+					    <th>Pass-out</th>
+					  </tr>
+				
+					<% 
+					  for(Exam e : select_students){
+						  %>
+						  <tr>
+						    <td><%=e.getEmail()%></td>
+						    <td><%=e.getLang()%></td>
+						    <td><%=e.getGrade()%></td>
+						    <td><%=e.getName() %></td>
+						    <td><%=e.getGender() %></td>
+						    <td><%=e.getCity() %></td>
+						    <td><%=e.getContact() %></td>
+						    <td><%=e.getEducation()%></td>
+						    <td><%=e.getPassout()%></td>
+						  </tr> <%
+					  }
+					 %>
+				</table>
 
-					<!-- <div class="form-group">
-						<label>Name of student(optional)</label> <input type="text"
-							class="form-control" name="name">
-					</div>
-
-					<div class="form-group">
-						<label>Email of student(Optional)</label> <input type="email"
-							name="email" class="form-control">
-					</div>
- -->
-					<div class="form-group">
-						<label>Gender &nbsp; &nbsp; &nbsp;</label> <input type="radio"
-							name="gender" value="male"> Male &nbsp; &nbsp; <input
-							type="radio" name="gender" value="female"> Female
-					</div>
-					<!-- <div class="form-group">
-						<label>City(optional)</label> <input type="text" name="city"
-							class="form-control">
-					</div> -->
-
-					<div class="form-group">
-						<label>Education &nbsp&nbsp</label>
-
-
-						<!-- show lang from database -->
-						<%
-							for (String ed : eduList) {
-						%>
-
-						<input type="checkbox" name="edu" value="<%=ed%>" />&nbsp&nbsp&nbsp<%=ed%>&nbsp&nbsp&nbsp
-
-						<%
-							}
-						%>
-
-
-
-					</div>
-
-
-					<div class="form-group">
-						<label>Passout &nbsp&nbsp </label>
-
-						<!-- show lang from database -->
-						<%
-							for (String pas : passoutList) {
-						%>
-
-						<input type="checkbox" name="passout" value="<%=pas%>" />&nbsp&nbsp&nbsp<%=pas%>&nbsp&nbsp&nbsp
-
-						<%
-							}
-						%>
-
-
-
-					</div>
-
-					<div class="form-group">
-						<label>Programming lang &nbsp&nbsp </label>
-						<!-- show lang from database -->
-						<%
-							for (String lang : langs) {
-						%>
-
-						<input type="checkbox" name="lang" value="<%=lang%>" />&nbsp&nbsp&nbsp<%=lang%>&nbsp&nbsp&nbsp
-
-						<%
-							}
-						%>
-
-					</div>
-
-					<div class="form-group">
-						<label>Grade&nbsp&nbsp</label> <select name="grade">
-							<option value="0 - 30">0 - 30</option>
-							<option value="30 - 60">30 - 60</option>
-							<option value="60 - 90">60 - 90</option>
-							<option value="90 - 100">90 - 100</option>
-						</select>
-					</div>
-
-					<input type="submit" name="submit" value="Search"
-						class="btn btn-block btn-success" style="width: 25%;">
-				</form>
-
-
-
-
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js'></script>
 
 
 			</div>
