@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import java.util.HashMap;
-
+import java.util.LinkedHashMap;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +43,7 @@ public class ShowResultController extends HttpServlet {
 			
 			ArrayList<Question>	questions = (ArrayList<Question>)session.getAttribute("Questions");
 			
-			HashMap<String, String> answers = (HashMap<String, String>)session.getAttribute("ansStore");
+			LinkedHashMap<String, String> answers = (LinkedHashMap<String, String>)session.getAttribute("ansStore");
 			
 			ArrayList<String>  ans = new ArrayList<String>(answers.values());
 			

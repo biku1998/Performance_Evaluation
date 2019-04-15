@@ -175,25 +175,25 @@ img:hover {
             <table style="background ="Background.jpg">
             <tr>
             <th>
-            <a href="student.html"><img src="Java.png" style="width:304px;height:228px;"></a>&nbsp;
+            <a href="#"><img src="Java.png" style="width:304px;height:228px;"></a>&nbsp;
             </th>
             <th>
-            <a href="student.html"><img src="c++.png" style="width:304px;height:228px;"></a>
+            <a href="#"><img src="c++.png" style="width:304px;height:228px;"></a>
             </th>
             <th>
-           <a href="student.html"> <img src="c.png" style="width:304px;height:228px;">&nbsp;</a>
+           <a href="#"> <img src="c.png" style="width:304px;height:228px;">&nbsp;</a>
             </th>
             <th>
             </tr>
              <tr>
             <th>
-            <a href="student.html"><img src="cs.png" style="width:304px;height:228px;">&nbsp;</a>
+            <a href="#"><img src="cs.png" style="width:304px;height:228px;">&nbsp;</a>
             </th>
             <th>
-            <a href="student.html"><img src="python.png" style="width:304px;height:228px;"></a>
+            <a href="#"><img src="python.png" style="width:304px;height:228px;"></a>
             </th>
             <th>
-            <a href="student.html"><img src="php.png" style="width:304px;height:228px;">&nbsp;</a>
+            <a href="#"><img src="php.png" style="width:304px;height:228px;">&nbsp;</a>
             </th>
             <th>
             </tr>

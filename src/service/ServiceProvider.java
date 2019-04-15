@@ -166,7 +166,7 @@ public class ServiceProvider {
 			ResultSet rs = st.executeQuery(sql);
 			
 			while(rs.next()) {
-				sub.add(rs.getString("subject"));
+				sub.add(rs.getString("subject").trim().toLowerCase());
 			}
 			
 			return sub;

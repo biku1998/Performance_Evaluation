@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import model.Student;
 import service.ServiceProvider;
 
@@ -54,6 +56,10 @@ public class SignUpController extends HttpServlet {
 			// for debug.
 			
 //			out.println("Done ......");
+			
+			HttpSession session = req.getSession();
+			
+			session.setAttribute("currentUser", email);
 			
 			resp.sendRedirect("examSelection.jsp");
 			

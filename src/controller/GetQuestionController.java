@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,7 +69,7 @@ public class GetQuestionController extends HttpServlet {
 			
 			
 			
-			HashMap<String, String> userAnswer = new HashMap<>();
+			LinkedHashMap<String, String> userAnswer = new LinkedHashMap<>();
 			
 			while(rs.next()) {
 				questions.add(new Question(rs.getString("subject"),

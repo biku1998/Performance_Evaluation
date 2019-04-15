@@ -32,7 +32,7 @@ public class ShowQuestionToDeleteController extends HttpServlet {
 			
 
 			if(!ques.isEmpty()) {
-				System.out.println(ques);
+				//System.out.println(ques);
 				
 				RequestDispatcher rd = req.getRequestDispatcher("showQuestionToDel.jsp");
 				req.setAttribute("Subquestions", ques);

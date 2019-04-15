@@ -2,6 +2,7 @@ package controller;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,7 @@ public class AnswerCollectorController extends  HttpServlet{
 
 	// job of this servlet is to collect the answer and pass the user to the quiz page again.
 	
-	HashMap<String, String> ans = null;	
+	LinkedHashMap<String, String> ans = null;	
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) {
@@ -40,7 +41,7 @@ public class AnswerCollectorController extends  HttpServlet{
 			
 			
 			HttpSession session = req.getSession();
-			ans = (HashMap<String, String>)session.getAttribute("ansStore");
+			ans = (LinkedHashMap<String, String>)session.getAttribute("ansStore");
 			ans.put(q_id, user_ans);
 			
 //			System.out.println(ans);
