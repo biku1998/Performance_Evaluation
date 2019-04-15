@@ -1,3 +1,11 @@
+<%@page import="model.Company"%>
+<%@page import="java.util.ArrayList"%>
+<%
+ArrayList<Company> allCompany = (ArrayList<Company>)session.getAttribute("all_Company");
+
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +15,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add question</title>
+    <title>Company</title>
+
+<link rel="stylesheet" href="csstable/style.css">
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +43,37 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+/* Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #008CBA;  /*#008CBA   #2196f3*/
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+
+</style>
 </head>
 <body>
 
@@ -63,10 +104,9 @@
                     <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
                 </a>-->
                 <ul class="dropdown-menu dropdown-alerts">
-                    <li>  
+                    <li>
                         <a href="#">
-                        <div>
-                          
+                            <div>
                                 <i class="fa fa-comment fa-fw"></i> New Comment
                                 <span class="pull-right text-muted small">4 minutes ago</span>
                             </div>
@@ -83,19 +123,19 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> exit<b class="caret"></b>
+                    <i class="fa fa-user fa-fw"></i> About Us<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Contact us</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Help</a>
                     </li>
-                    <!-- <li class="divider"></li>
-                    <li><a href="AdminPanel.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a> -->
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Donate</a>
                     </li>
                 </ul>
-                </ul>
-            
+            </li>
+        </ul>
 
         <!-- Sidebar -->
         <div class="navbar-default sidebar" role="navigation">
@@ -124,7 +164,8 @@
                     <li>
                         <a href="Search.jsp" class="active"><i class="fa fa-search"></i> Search</a>
                     </li>
-                    <li>
+                    
+                     <li>
                         <a href="index.jsp" class="active"><i class="fa fa-lock"></i> Logout</a>
                     </li>
                     
@@ -140,56 +181,43 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">{ add question }</h1>
+                    <h1 class="page-header">{ All Company using the platform }</h1>
                 </div>
             </div>
 
             <!-- ... Your content goes here ... -->
+            <form action="deleteSelectedComp" method="POST">
             
-             <form action="addQuestion" method="POST">
+            <table class="responstable">
+					  
+					  <tr>
+					    <th>Select</th>
+					    <th data-th="Driver details"><span>Company Name</span></th>
+					    
+					  </tr>
+					  
+					  <%for (Company  i: allCompany) {%>
+						  <tr>
+						    <td><input type="checkbox" name="cmp_name" value="<%=i.getCompany_name()%>"/></td>
+						    <td><%=i.getCompany_name()%></td>
+						    
+						    </tr>
+						  <%
+						    /* System.out.println(e.getKey() + " = " + e.getValue()); */
+						} %>
+					 
+					  
+					</table>
+            
+                <input type="submit" value="Delete Company"  name="search" class="btn btn-block btn-success"
+                style='width: 200px;'
+                 >
+                </form>
 
-             
-                <div class="form-group">
-                    <label><h4>Subject&nbsp;</h4> </label>
-                   <input type="text" class="form-control" name="subject">
-                
-                </div>
-              
-                
-                <div class="form-group">
-                    <label> ID </label>
-                    <input type="text" class="form-control" name="id">
-                </div>
-                
-                
-                <div class="form-group">
-                    <label>Enter Question</label>
-                    <textarea class="form-control" rows="4" name="ques"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Answer 1. </label>
-                    <input type="text" class="form-control" name="option1">
-                </div>
-                <div class="form-group">
-                    <label>Answer 2.</label>
-                    <input type="text" class="form-control" name="option2">
-                </div>
-                <div class="form-group">
-                    <label>Answer 3.</label>
-                    <input type="text" class="form-control" name="option3">
-                </div>
-                
-                <div class="form-group">
-                    <label>Correct Answer.</label>
-                    <input type="text" class="form-control" name="correct_ans">
-                </div>
-                    
-               
-                
-                    <input type="submit" value="Add"  name="add" class="btn btn-block btn-success" >
-                </form></div></div></div>
+        </div>
+    </div>
 
+</div>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>

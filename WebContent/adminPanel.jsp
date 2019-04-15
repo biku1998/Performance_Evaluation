@@ -1,9 +1,4 @@
-<%-- <%
-String log = (String)session.getAttribute("logedIn");
-if(log == null || log.equalsIgnoreCase("no")){
-	response.sendRedirect("admin.jsp");
-}
-%> --%>
+
 
 <!DOCTYPE html>
 <html lang="en">

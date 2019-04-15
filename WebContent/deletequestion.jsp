@@ -122,7 +122,7 @@
                         <a href="deletequestion.jsp" class="active"><i class="fa fa-trash-o "></i> Delete_Question</a>
                     </li>
                     <li>
-                        <a href="Search.html" class="active"><i class="fa fa-search"></i> Search</a>
+                        <a href="Search.jsp" class="active"><i class="fa fa-search"></i> Search</a>
                     </li>
                     <li>
                         <a href="index.jsp" class="active"><i class="fa fa-lock"></i> Logout</a>
